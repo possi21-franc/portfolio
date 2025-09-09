@@ -1,0 +1,89 @@
+@import "tailwindcss";
+
+:root{
+  --text-color:#fff;
+  --bg-color:#262626;
+  --bg-color-2:#595959;
+  --dark:#000;
+  --color:#13C2C2;
+
+}
+
+
+
+html::-webkit-scrollbar{
+    width: 0.4rem;
+}
+html::-webkit-scrollbar-thumb{
+    background:var(--color);
+    border-radius: 3rem;
+}
+html::-webkit-scrollbar-track{
+    background: #000;
+}
+
+
+
+.nav{
+  background: var(--color);
+}
+
+.bgs{
+  background: var(--bg-color);
+}
+.bg2{
+  background: var(--bg-color-2);
+}
+
+.bg-pic {
+  background-color: var(--color);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+}
+.span{
+  color: var(--color);
+}
+
+.btn{
+  background: var(--color);
+  cursor: pointer;
+}
+
+.item{
+  border: 5px solid var(--color);
+  border-radius: 20px;
+  padding: 10px;
+  margin: 10px;
+  background: var(--bg-color-2);
+  transition: all 0.4s ease-in-out; /* transition fluide */
+
+
+}
+.item:hover {
+  
+  transform: translateY(-10px)  !important;   /* léger zoom + décalage */
+  box-shadow: 0 0 10px var(--color);
+}
+
+
+.icon{
+  font-size: 50px;
+  color: var(--color);
+  margin-bottom: 20px;
+  padding-top: 10px;
+}
+
+.skill-item{
+  border-radius: 20px;
+  padding: 15px;
+  background: var(--bg-color-2);
+  margin: 10px;
+  height: 170px;
+  transition: all 0.4s ease-in-out; /* transition fluide */
+}
+.skill-item:hover {
+  box-shadow: 0 10px 25px var(--color) ; /* ombre douce et profonde */
+  transform: translateY(-10px) scale(1.05) !important;   /* léger zoom + décalage */
+    border: 5px solid var(--color);
+
+}

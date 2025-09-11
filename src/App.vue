@@ -6,6 +6,9 @@
   <About></About>
   <Services></Services>
   <Skils></Skils>
+  <Project></Project>
+  <ContactForm></ContactForm>
+  <Footer></Footer>
 
 
 </template>

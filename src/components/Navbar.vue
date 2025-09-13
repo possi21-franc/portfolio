@@ -1,5 +1,5 @@
 <template>
-  <nav class="nav shadow-md fixed top-0 left-0 w-full z-50 text-white mb-5">
+  <nav class="nav shadow-md fixed top-0 left-0 w-full z-50 text-white mb-5 bg-cyan-400 md:bg-transparent">
     <div class="container mx-auto flex justify-between items-center px-4 py-3">
       <!-- Logo -->
       <div class="flex items-center gap-3">
@@ -23,20 +23,44 @@
           transition-all duration-500 ease-in-out bg-cyan-400 md:bg-transparent"
         :class="isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0 md:max-h-full md:opacity-100'"
       >
-        <li><a href="#home" class="hover:text-blue-600" @click="isOpen = false">Accueil</a></li>
-        <li><a href="#about" class="hover:text-blue-600" @click="isOpen = false">A Propos</a></li>
-        <li><a href="#services" class="hover:text-blue-600" @click="isOpen = false">Services</a></li>
-        <li><a href="#skills" class="hover:text-blue-600" @click="isOpen = false">Compétences</a></li>
-        <li><a href="#projects" class="hover:text-blue-600" @click="isOpen = false">Projets</a></li>
-        <li><a href="#contact" class="hover:text-blue-600" @click="isOpen = false">Contact</a></li>
+        <li><a href="#home" :class="linkClass('home')" @click="isOpen = false">Accueil</a></li>
+        <li><a href="#about" :class="linkClass('about')" @click="isOpen = false">A Propos</a></li>
+        <li><a href="#services" :class="linkClass('services')" @click="isOpen = false">Services</a></li>
+        <li><a href="#skills" :class="linkClass('skills')" @click="isOpen = false">Compétences</a></li>
+        <li><a href="#projects" :class="linkClass('projects')" @click="isOpen = false">Projets</a></li>
+        <li><a href="#contact" :class="linkClass('contact')" @click="isOpen = false">Contact</a></li>
       </ul>
     </div>
   </nav>
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import logo from '../assets/images/logo.png'
 
 const isOpen = ref(false)
+const activeSection = ref("home") // section par défaut
+
+// Fonction pour appliquer la classe active
+const linkClass = (section) => {
+  return activeSection.value === section
+    ? "border-b-2 border-white transition-all pb-2"
+    : "hover:transition-all"
+}
+
+onMounted(() => {
+  const sections = document.querySelectorAll("section") // Assure-toi que chaque partie de ton site a <section id="...">
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          activeSection.value = entry.target.id
+        }
+      })
+    },
+    { threshold: 0.6 } // déclenche quand 60% de la section est visible
+  )
+
+  sections.forEach((section) => observer.observe(section))
+})
 </script>

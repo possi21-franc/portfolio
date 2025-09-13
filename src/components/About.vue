@@ -1,5 +1,5 @@
 <template>
-  <section class=" pt-24 min-h-screen bg2 flex items-center" id="about">
+  <section class=" py-10 min-h-screen bg2 flex items-center" id="about">
   <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 px-6 justify-center items-center text-center md:text-left"
   >
       
@@ -32,6 +32,7 @@
         <p class="text-lg mb-6">
           Développeur Web Junior curieux et proactif, j'explore constamment de nouvelles pistes pour perfectionner mes compétences.
           Toujours avide d'apprendre les dernières technologies, je mets ma créativité et ma rigueur au service de projets innovants.
+          Mon objectif : allier esthétique, performance et accessibilité pour chaque projet.
         </p>
 
 

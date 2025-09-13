@@ -1,5 +1,5 @@
 <template>
-  <section class="pt-24 min-h-screen bgs flex items-center md:pt-0" id="home">
+  <section class="pt-24 pb-8 min-h-screen bgs flex items-center md:pt-0" id="home">
   <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 px-6 justify-center items-center text-center md:text-left"
   >
       <!-- Colonne gauche : texte -->
@@ -12,7 +12,7 @@
           Je suis <span class="span">Développeur junior </span>
         </h3>
         <p class="text-lg mb-6">
-          Développeur Web Junior passionné et autodidacte, je transforme les idées en expériences numériques intuitives et performantes.
+          Développeur Junior passionné et autodidacte, je transforme les idées en expériences numériques intuitives et performantes.
         </p>
 
 

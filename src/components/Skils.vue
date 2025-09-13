@@ -1,5 +1,5 @@
 <template>
-  <section class="pt-24 min-h-screen bgs flex items-center md:pt-0" id="skills">
+  <section class="pt-24 pb-5 min-h-screen bgs flex items-center md:p-0" id="skills">
     <div class="container mx-auto px-6 text-center text-white">
       <h1 class="text-4xl md:text-5xl font-bold mb-12">
         <span class="span">Mes</span> Compétences

@@ -1,5 +1,5 @@
 <template>
-  <section class=" py-10 min-h-screen bg2 flex items-center" id="about">
+  <section class=" py-5 min-h-screen bg2 flex items-center" id="about">
   <div class="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 px-6 justify-center items-center text-center md:text-left"
   >
       

@@ -1,4 +1,8 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+
+
 
 :root{
   --text-color:#fff;
@@ -22,7 +26,33 @@ html::-webkit-scrollbar-track{
     background: #000;
 }
 
+/* Dans votre fichier CSS principal */
+html {
+  overflow-x: hidden;
+  width: 100%;
+}
 
+body {
+  overflow-x: hidden;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Reset pour tous vos composants */
+
+@media screen and (max-width:380px) {
+  .container, .max-w-7xl, .mx-auto {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+    
+}
 
 .nav{
   background: var(--color);
@@ -88,3 +118,6 @@ html::-webkit-scrollbar-track{
     border: 5px solid var(--color);
 
 }
+
+
+

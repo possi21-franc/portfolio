@@ -1,55 +1,80 @@
 <template>
-  <nav class="nav shadow-md fixed top-0 left-0 w-full z-50 text-white mb-5 bg-cyan-400 md:bg-transparent">
-    <div class="container mx-auto flex justify-between items-center px-4 py-3">
+  <nav class="fixed top-0 left-0 w-full z-50  md: bg-transparent backdrop-blur-md shadow-md">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
       <!-- Logo -->
       <div class="flex items-center gap-3">
         <img :src="logo" alt="Logo" class="w-10 h-10 rounded-full object-cover" />
-        <h2 class="text-2xl font-bold">Portfolio</h2>
+        <span class="text-xl font-bold text-white">Portfolio</span>
       </div>
 
-      <!-- Bouton hamburger (mobile) -->
-      <button 
-        class="md:hidden text-2xl focus:outline-none"
-        @click="isOpen = !isOpen"
-      >
-        <span v-if="!isOpen">☰</span> <!-- hamburger -->
-        <span v-else>✕</span> <!-- croix -->
-      </button>
-
-      <!-- Liens de navigation -->
-      <ul
-        class="flex flex-col md:flex-row gap-4 absolute md:static top-16 left-0 w-full md:w-auto 
-          nav px-6 py-4 md:p-0 shadow-md md:shadow-none 
-          transition-all duration-500 ease-in-out bg-cyan-400 md:bg-transparent"
-        :class="isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0 md:max-h-full md:opacity-100'"
-      >
-        <li><a href="#home" :class="linkClass('home')" @click="isOpen = false">Accueil</a></li>
-        <li><a href="#about" :class="linkClass('about')" @click="isOpen = false">A Propos</a></li>
-        <li><a href="#services" :class="linkClass('services')" @click="isOpen = false">Services</a></li>
-        <li><a href="#skills" :class="linkClass('skills')" @click="isOpen = false">Compétences</a></li>
-        <li><a href="#projects" :class="linkClass('projects')" @click="isOpen = false">Projets</a></li>
-        <li><a href="#contact" :class="linkClass('contact')" @click="isOpen = false">Contact</a></li>
+      <!-- Desktop links -->
+      <ul class="hidden md:flex items-center gap-8 text-white">
+        <li><a href="#home" :class="linkClass('home')">Accueil</a></li>
+        <li><a href="#about" :class="linkClass('about')">À propos</a></li>
+        <li><a href="#services" :class="linkClass('services')">Services</a></li>
+        <li><a href="#skills" :class="linkClass('skills')">Compétences</a></li>
+        <li><a href="#projects" :class="linkClass('projects')">Projets</a></li>
+        <li><a href="#contact" :class="linkClass('contact')">Contact</a></li>
       </ul>
+
+      <!-- Mobile hamburger -->
+      <button class="md:hidden text-3xl text-white" @click="toggleMenu">
+        <span v-if="!isOpen">☰</span>
+        <span v-else>✕</span>
+      </button>
     </div>
+
+    <!-- Mobile menu -->
+    <transition name="slide-fade">
+      <ul
+        v-if="isOpen"
+        class="flex flex-col px-4 text-start gap-6 py-6 bg-cyan-500 text-white md:hidden"
+      >
+        <li><a href="#home" @click="closeMenu">Accueil</a></li>
+        <li><a href="#about" @click="closeMenu">À propos</a></li>
+        <li><a href="#services" @click="closeMenu">Services</a></li>
+        <li><a href="#skills" @click="closeMenu">Compétences</a></li>
+        <li><a href="#projects" @click="closeMenu">Projets</a></li>
+        <li><a href="#contact" @click="closeMenu">Contact</a></li>
+      </ul>
+    </transition>
   </nav>
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 import logo from '../assets/images/logo.png'
 
 const isOpen = ref(false)
-const activeSection = ref("home") // section par défaut
+const activeSection = ref("home")
 
-// Fonction pour appliquer la classe active
+const toggleMenu = () => {
+  isOpen.value = !isOpen.value
+}
+
+const closeMenu = () => {
+  isOpen.value = false
+}
+
+// Fermer le menu automatiquement si on scroll
+const handleScroll = () => {
+  if (isOpen.value) {
+    closeMenu()
+  }
+}
+
+// Observer la section active (scrollspy)
 const linkClass = (section) => {
   return activeSection.value === section
-    ? "border-b-2 border-white transition-all pb-2"
-    : "hover:transition-all"
+    ? "border-b-2 border-white pb-2"
+    : "hover:opacity-80"
 }
 
 onMounted(() => {
-  const sections = document.querySelectorAll("section") // Assure-toi que chaque partie de ton site a <section id="...">
+  window.addEventListener("scroll", handleScroll)
+
+  // ScrollSpy
+  const sections = document.querySelectorAll("section[id]")
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -58,9 +83,34 @@ onMounted(() => {
         }
       })
     },
-    { threshold: 0.6 } // déclenche quand 60% de la section est visible
+    { threshold: 0.6 }
   )
+  sections.forEach((s) => observer.observe(s))
 
-  sections.forEach((section) => observer.observe(section))
+  onUnmounted(() => {
+    window.removeEventListener("scroll", handleScroll)
+    sections.forEach((s) => observer.unobserve(s))
+  })
 })
 </script>
+
+<style>
+/* Transition menu mobile */
+.slide-fade-enter-active,
+.slide-fade-leave-active {
+  transition: all 0.3s ease;
+}
+.slide-fade-enter-from {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+.slide-fade-leave-to {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+/* Scroll fluide entre sections */
+html {
+  scroll-behavior: smooth;
+}
+</style>

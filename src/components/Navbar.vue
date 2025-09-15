@@ -1,5 +1,5 @@
 <template>
-  <nav class="fixed top-0 left-0 w-full z-50  md: bg-transparent backdrop-blur-md shadow-md">
+  <nav class="fixed top-0 left-0 w-full z-50  md: bg-transparent backdrop-blur-3xl shadow-md">
     <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
       <!-- Logo -->
       <div class="flex items-center gap-3">
@@ -8,7 +8,7 @@
       </div>
 
       <!-- Desktop links -->
-      <ul class="hidden md:flex items-center gap-8 text-white">
+      <ul class="hidden md:flex items-center gap-8 text-white font-medium">
         <li><a href="#home" :class="linkClass('home')">Accueil</a></li>
         <li><a href="#about" :class="linkClass('about')">À propos</a></li>
         <li><a href="#services" :class="linkClass('services')">Services</a></li>
@@ -28,7 +28,7 @@
     <transition name="slide-fade">
       <ul
         v-if="isOpen"
-        class="flex flex-col px-4 text-start gap-6 py-6 bg-cyan-500 text-white md:hidden"
+        class="flex flex-col px-4 text-start gap-6 py-6 bg-black/50   text-white font-medium md:hidden"
       >
         <li><a href="#home" @click="closeMenu">Accueil</a></li>
         <li><a href="#about" @click="closeMenu">À propos</a></li>
@@ -66,8 +66,8 @@ const handleScroll = () => {
 // Observer la section active (scrollspy)
 const linkClass = (section) => {
   return activeSection.value === section
-    ? "border-b-2 border-white pb-2"
-    : "hover:opacity-80"
+    ? "border-b-2 border-cyan pb-2 text-cyan-300"
+    : "hover:opacity-80 "
 }
 
 onMounted(() => {

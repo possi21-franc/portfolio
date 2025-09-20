@@ -10,7 +10,7 @@
         <div
           v-for="(project, index) in projects"
           :key="index"
-          class="relative group h-80 rounded-xl overflow-hidden shadow-lg cursor-pointer"
+          class="relative group h-80 rounded-xl overflow-hidden shadow-lg cursor-pointer animate-pulse md:animate-none"
           data-aos="zoom-in"
           data-aos-duration="1500"
           @click="toggleActive(index)"

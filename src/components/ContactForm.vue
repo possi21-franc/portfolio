@@ -27,14 +27,14 @@
             <!-- Icônes réseaux sociaux -->
             <div class="flex justify-center gap-4 md:justify-start">
               <a
-                href="#"
+                href="https://wa.me/+237652607242"
                 target="_blank"
                 class="bg-green-500 text-white text-2xl p-3 rounded-full hover:bg-green-600 transition w-10 h-10 flex items-center justify-center"
               >
                 <i class="fab fa-whatsapp"></i>
               </a>
               <a
-                href="#"
+                href="#home"
                 target="_blank"
                 class="bg-blue-600 text-white text-2xl p-3 rounded-full hover:bg-blue-700 transition w-10 h-10 flex items-center justify-center"
               >
@@ -106,6 +106,8 @@
               Soumettre
             </button>
           </form>
+           <!-- Le composant toast -->
+            <Toast ref="toast" />
         </div>
       </div>
     </div>
@@ -115,8 +117,13 @@
 <script setup>
 import contrat from '../assets/images/contrat.jpeg'
 
-import { reactive } from 'vue';
+import { reactive, ref } from 'vue';
 import emailjs from 'emailjs-com';
+import Toast  from './Toast.vue';
+
+const toast = ref(null);
+
+
 
 const form = reactive({
   nom: '',
@@ -149,11 +156,11 @@ const sendEmail = () => {
         "KxFyAP1vSxz3tD2ge"
     )
     .then(()=>{
- alert("Message envoyé avec succès ✅") 
+     toast.value.showToast("Message envoyé avec succès ✅")
  resetForm();
   })
   .catch((error) =>{
-     alert("Erreur lors de l'envoi ❌ : " + error.text)
+     toast.value.showToast("Erreur lors de l'envoi ❌ : " + error.text)
      resetForm();
   } )
 

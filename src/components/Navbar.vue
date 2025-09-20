@@ -3,7 +3,9 @@
     <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
       <!-- Logo -->
       <div class="flex items-center gap-3">
-        <img :src="logo" alt="Logo" class="w-10 h-10 rounded-full object-cover" />
+        <a href="#home">
+          <img :src="logo" alt="Logo" class="w-10 h-10 rounded-full object-cover cursor-pointer" />
+        </a>
         <span class="text-xl font-bold text-white">Portfolio</span>
       </div>
 

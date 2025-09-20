@@ -23,24 +23,28 @@
     <i class="fab fa-whatsapp"></i>
   </a>
   
-  <a href="https://facebook.com/TON_PROFIL" target="_blank" 
+  <a href="#home" target="_blank" 
      class="bg-blue-600 text-white text-2xl hover:bg-blue-700 transition rounded-full flex items-center justify-center h-10 w-10">
     <i class="fab fa-facebook"></i>
   </a>
   
-  <a href="https://www.tiktok.com/@TON_PROFIL" target="_blank" 
-     class="bg-black text-white text-2xl hover:bg-gray-800 transition rounded-full flex items-center justify-center h-10 w-10">
-    <i class="fab fa-tiktok"></i>
-  </a>
+  <a
+               href="https://mail.google.com/mail/?view=cm&fs=1&to=francpossi462@gmail.com" 
+               target="_blank" 
+               rel="noopener noreferrer"
+                class="bg-blue-500 text-white text-2xl p-3 rounded-full hover:bg-blue-600 transition w-10 h-10 flex items-center justify-center"
+              >
+                <i class="fa-regular fa-envelope"></i>
+              </a>
   
-  <a href="https://github.com/TON_PROFIL" target="_blank" 
-     class="bg-gray-900 text-white text-2xl hover:bg-gray-700 transition rounded-full flex items-center justify-center h-10 w-10">
-    <i class="fab fa-github"></i>
-  </a>
+  
 </div>
 
 <div>
+  <a href="/public/LoicDev.pdf" 
+  download="loicDev.pdf">
     <button class="btn px-6 py-3  text-white rounded-lg outline-none animate-pulse">Télécharger le CV</button>
+  </a>
 </div>
 
 

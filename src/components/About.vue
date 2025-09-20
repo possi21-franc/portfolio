@@ -38,8 +38,10 @@
 
 
 <div>
+<a href="/public/LoicDev.pdf" 
+  download="loicDev.pdf">
     <button class="btn px-6 py-3  text-white rounded-lg outline-none animate-pulse">Télécharger le CV</button>
-</div>
+  </a></div>
 
 
       </div>

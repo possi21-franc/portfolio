@@ -1,5 +1,5 @@
 <template>
-  <section class=" py-5 min-h-screen bgs flex items-center md:pt-0" id="contact">
+  <section class="pt-24 pb-5 min-h-screen bgs flex items-center md:pt-0" id="contact">
     <div class="container text-white mx-auto px-6 overflow-x-hidden">
       <h1 class="text-4xl md:text-5xl font-bold mb-12 text-center">
         Contactez<span class="span">-Moi</span>

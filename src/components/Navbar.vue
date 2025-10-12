@@ -67,10 +67,14 @@ const handleScroll = () => {
 
 // Observer la section active (scrollspy)
 const linkClass = (section) => {
-  return activeSection.value === section
-    ? "border-b-2 border-cyan pb-2 text-cyan-300"
-    : "hover:opacity-80 "
+  return `
+    relative pb-2 transition-all duration-300 
+    ${activeSection.value === section 
+      ? 'border-b-2 border-cyan-300 text-cyan-300' 
+      : 'hover:border-b-2 hover:border-cyan-300 hover:text-cyan-300'}
+  `
 }
+
 
 onMounted(() => {
   window.addEventListener("scroll", handleScroll)

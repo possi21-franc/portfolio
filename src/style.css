@@ -77,6 +77,12 @@ body {
 .btn{
   background: var(--color);
   cursor: pointer;
+  width: 150px;
+}
+.btn1{
+  background: var(--color);
+  cursor: pointer;
+  width: 180px;
 }
 
 .item{

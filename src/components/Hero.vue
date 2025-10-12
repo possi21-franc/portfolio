@@ -41,11 +41,13 @@
 </div>
 
 <div>
-  <a href="/LoicDev.pdf" 
-  download="loicDev.pdf">
-    <button class="btn px-6 py-3  text-white rounded-lg outline-none animate-pulse">Télécharger le CV</button>
-  </a>
-</div>
+<a href="#contact" 
+  >
+    <button class="btn1  py-3 text-lg text-white rounded-lg outline-none animate-pulse">
+        <i class="fa-solid fa-paper-plane text-xl mr-1"></i>
+         Me Contacter
+    </button>
+  </a></div>
 
 
       </div>

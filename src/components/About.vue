@@ -38,9 +38,13 @@
 
 
 <div>
-<a href="/LoicDev.pdf" 
-  download="loicDev.pdf">
-    <button class="btn px-6 py-3  text-white rounded-lg outline-none animate-pulse">Télécharger le CV</button>
+<a href="/LoicDev.pdf " 
+  target="_blank" rel="noopener noreferrer"
+  >
+    <button class="btn px-6 py-3  text-white rounded-lg outline-none animate-pulse">
+        <i class="fa-solid fa-download text-xl mr-1"></i>
+         Mon CV
+    </button>
   </a></div>
 
 

@@ -1,5 +1,8 @@
 <template>
-  <section class="pt-24 pb-5 min-h-screen bg2 flex items-center md:pt-0" id="projects">
+  <section
+    class="pt-24 pb-5 min-h-screen bg2 flex items-center md:pt-0"
+    id="projects"
+  >
     <div class="container text-center text-white mx-auto px-6">
       <h1 class="text-3xl md:text-5xl font-bold mb-12 sm:text-3xl">
         <span class="span">Mes</span> Différents Projets
@@ -10,7 +13,7 @@
         <div
           v-for="(project, index) in projects"
           :key="index"
-          class="relative group h-80 rounded-xl overflow-hidden shadow-lg cursor-pointer animate-pulse md:animate-none"
+          class="relative group h-80 rounded-xl overflow-hidden shadow-lg cursor-pointer md:animate-none"
           data-aos="zoom-in"
           data-aos-duration="1500"
           @click="toggleActive(index)"
@@ -26,7 +29,10 @@
           <div
             :class="[
               'absolute inset-0 bg-gradient-to-t from-cyan-400 via-black/90 to-transparent transition duration-500 flex flex-col justify-end p-4 items-center text-center',
-              activeCard === index ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
+              // Visible by default on small screens; on md+ keep original behavior
+              activeCard === index
+                ? 'opacity-100 md:opacity-100'
+                : 'opacity-100 md:opacity-0 md:group-hover:opacity-100',
             ]"
           >
             <h2 class="text-xl font-bold mb-3">{{ project.title }}</h2>
@@ -48,45 +54,40 @@
 </template>
 
 <script setup>
-import { ref } from "vue"
-import project1 from '../assets/images/project1.jpg'
-import project2 from '../assets/images/project2.jpg'
-import project3 from '../assets/images/project3.jpg'
-
+import { ref } from "vue";
+import project1 from "../assets/images/project1.png";
+import project2 from "../assets/images/project2.jpg";
+import project3 from "../assets/images/project3.jpg";
 
 // Liste des projets
 const projects = ref([
   {
-    title: "Site e-commerce statique",
-    description: "Création d'un site e-commerce statique dans le but d'approfondir mes compétences en développement front-end",
-    image:project1,
-    link: "https://e-commerce-two-sand-44.vercel.app/"
+    title: "TaskFlow",
+    description:
+      "Création d'une application de gestion de tâches quotidienne avec le framework react.js",
+    image: project1,
+    link: "https://task-flow-qobc.vercel.app/",
   },
   {
     title: "Weather App",
-    description: "Création d'une application qui fournit la météo en temps réel d'une ville recherchée",
+    description:
+      "Création d'une application qui fournit la météo en temps réel d'une ville recherchée",
     image: project2,
-    link: "https://weather-app-b4pz.vercel.app/"
+    link: "https://weather-app-b4pz.vercel.app/",
   },
   {
     title: "Pokedex App",
-    description: "Création d'une application qui fournit tous les pokémons existants grâce à une API avec recherche.",
+    description:
+      "Création d'une application qui fournit tous les pokémons existants grâce à une API avec recherche.",
     image: project3,
-    link: "https://mpokedex.vercel.app/"
-  }
-])
+    link: "https://mpokedex.vercel.app/",
+  },
+]);
 
 // Gestion de la carte active (mobile)
-const activeCard = ref(null)
+const activeCard = ref(null);
 
 const toggleActive = (index) => {
-  activeCard.value = activeCard.value === index ? null : index
-}
+  activeCard.value = activeCard.value === index ? null : index;
+};
 </script>
-
-
-
-<style>
-
-</style>
-

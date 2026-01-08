@@ -1,14 +1,11 @@
 <template>
-  <section
-    class="pt-24 pb-8 min-h-screen bgs flex items-center md:pt-0"
-    id="home"
-  >
+  <section class="pt-24 pb-8 min-h-screen bgs flex items-center" id="home">
     <div
-      class="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 px-6 justify-center items-center text-center md:text-left"
+      class="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 ps-20 justify-center items-center text-center md:text-left"
     >
       <!-- Colonne gauche : texte -->
       <div
-        class="flex flex-col justify-center text-white"
+        class="flex flex-col justify-center text-white p-4"
         data-aos="fade-right"
         data-aos-duration="1000"
       >

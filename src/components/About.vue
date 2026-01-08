@@ -1,7 +1,7 @@
 <template>
   <section class="pt-24 pb-5 min-h-screen bg2 flex items-center" id="about">
     <div
-      class="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 px-6 justify-center items-center text-center md:text-left"
+      class="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 pr-20 justify-center items-center text-center md:text-left"
     >
       <!-- Colonne droite : image -->
       <div
@@ -29,7 +29,7 @@
 
       <!-- Colonne gauche : texte -->
       <div
-        class="flex flex-col justify-center text-white order-1 md:order-2"
+        class="flex flex-col justify-center text-white order-1 md:order-2 p-4"
         data-aos="fade-up-left"
         data-aos-duration="1200"
       >
@@ -37,7 +37,7 @@
           A Propos <span class="span">de Moi</span>
         </h1>
 
-        <p class="text-lg mb-6">
+        <p class="text-lg mb-6 text-justify">
           Développeur web curieux et proactif, j'explore constamment de
           nouvelles pistes pour perfectionner mes compétences. Toujours avide
           d'apprendre les dernières technologies, je mets ma créativité et ma

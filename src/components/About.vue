@@ -1,7 +1,7 @@
 <template>
   <section class="pt-24 pb-5 min-h-screen bg2 flex items-center" id="about">
     <div
-      class="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 pr-20 justify-center items-center text-center md:text-left"
+      class="container mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 px-6 justify-center items-center text-center md:text-left md:pr-20"
     >
       <!-- Colonne droite : image -->
       <div
